@@ -1,0 +1,55 @@
+$footer-background-color: #525FE1;
+$image-border-color: #FFA41B;
+$button-background-color: #FFA41B;
+$p-font-color: #FFA41B;
+
+.Footer-main {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+    
+    background-color: $footer-background-color;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+}
+
+.Footer-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Footer-image img {
+    border-radius: 50%;
+    border: 2px solid $image-border-color;
+
+    width: 150px;
+}
+
+.Footer-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Footer-info p {
+    color: $p-font-color;
+}
+
+.Footer-buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.Footer-buttons button {
+    background-color: $button-background-color;
+}

@@ -1,0 +1,34 @@
+$button-background-color: #FFA41B;
+$button-background-color-hover-selected: #525FE1;
+
+.Header-image-section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.Header-image {
+    width: 90vw;
+    height: 120px;
+    margin-top: 20px;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border: 2px solid #FFA41B;
+}
+
+.Header-button-section {
+    width: 100vw;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Header-button-section button {
+    background-color: $button-background-color;
+}
+
+.Header-button-section button:hover {
+    background-color: $button-background-color-hover-selected;
+    color: $button-background-color;
+}

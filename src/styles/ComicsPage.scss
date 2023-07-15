@@ -1,0 +1,77 @@
+$instance-background-color: #F86F03;
+$image-border-color: #F86F03;
+$instance-name-color: #FFF;
+$instance-slide-background-color: #525FE1;
+
+.Comics-main {
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Comics-instances-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.Comics-instances-container div {
+    width: 250px;
+    background-color: $instance-background-color;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Comics-instances-container div img {
+    width: 100%; 
+    border: 2px solid $image-border-color;
+
+    animation-name: fadeEnd;
+    animation-duration: .2s;
+    opacity: 1;
+}
+
+.Comics-instances-container div img:hover {
+    animation-name: fadeStart;
+    animation-duration: .2s;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.Comics-instances-container div p {
+    color: $instance-name-color;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// Animations
+@keyframes fadeStart {
+    0% {
+        opacity: 1;
+    } 50% {
+        opacity: .8;
+    } 100% {
+        opacity: .6;
+    }
+}
+
+@keyframes fadeEnd {
+    0% {
+        opacity: .6;
+    } 50% {
+        opacity: .8;
+    } 100% {
+        opacity: 1;
+    }
+}

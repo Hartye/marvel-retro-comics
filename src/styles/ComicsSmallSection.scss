@@ -1,0 +1,62 @@
+$image-border-color: #F86F03;
+$instance-slide-background-color: #525FE1;
+
+// Second Row
+.Comics-instances-container-slide {
+    width: 100%;
+    padding: 20px;
+    background-color: $instance-slide-background-color;
+
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Comics-slide-row-one, .Comics-slide-row-two {
+    display: flex;
+    gap: 20px;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.Comics-slide-row-one div, .Comics-slide-row-two div {
+    width: 170px;
+}
+
+.Comics-instances-container-slide div img {
+    width: 100%;
+    border: 2px solid $image-border-color;
+
+    animation: fadeEnd .2s;
+    opacity: 1;
+}
+
+.Comics-instances-container-slide div img:hover {
+    cursor: pointer;
+    animation: fadeStart .2s;
+    opacity: .6;
+}
+
+// Animations
+@keyframes fadeStart {
+    0% {
+        opacity: 1;
+    } 50% {
+        opacity: .8;
+    } 100% {
+        opacity: .6;
+    }
+}
+
+@keyframes fadeEnd {
+    0% {
+        opacity: .6;
+    } 50% {
+        opacity: .8;
+    } 100% {
+        opacity: 1;
+    }
+}
