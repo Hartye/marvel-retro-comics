@@ -1,14 +1,21 @@
 import React from 'react';
-import Header from './components/Header'
-import Footer from './components/Footer'
-import ComicsPage from './components/ComicsPage'
-import ComicInstancePage from './components/ComicInstancePage'
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ComicsPage from './pages/ComicsPage';
+import ComicInstancePage from './pages/ComicInstancePage';
+import CharactersPage from './pages/CharactersPage';
+import CharacterInstancePage from './pages/CharacterInstance';
+import CreatorsPage from './pages/CreatorsPage';
+import CreatorInstancePage from './pages/CreatorInstancePage';
+import EventsPage from './pages/EventsPage';
+import EventInstancePage from './pages/EventInstancePage';
+import SeriesPage from './pages/SeriesPage';
+import SeriesInstancePage from './pages/SeriesInstancePage'
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 import './styles/Global.scss';
 
 // Public API key = 86cb2be8aecbf307ae51cbfb3804be73
-// Private API key = cc14c3d6270f17d6060b94a355accd3988e23ae8
 
 class App extends React.Component {
   constructor(props) {
@@ -45,6 +52,14 @@ class App extends React.Component {
           <Routes>
             <Route path="ComicsPage" element={<ComicsPage apiKey={this.state.apiKey}/>} />
             <Route path="ComicInstancePage/*" element={<ComicInstancePage apiKey={this.state.apiKey}/>} />
+            <Route path="CharactersPage" element={<CharactersPage apiKey={this.state.apiKey}/>} />
+            <Route path="CharacterInstancePage/*" element={<CharacterInstancePage apiKey={this.state.apiKey}/>} />
+            <Route path="CreatorsPage" element={<CreatorsPage apiKey={this.state.apiKey} />} />
+            <Route path="CreatorInstancePage/*" element={<CreatorInstancePage apiKey={this.state.apiKey} />} />
+            <Route path="EventsPage" element={<EventsPage apiKey={this.state.apiKey} />} />
+            <Route path="EventInstancePage/*" element={<EventInstancePage apiKey={this.state.apiKey} />} />
+            <Route path="SeriesPage" element={<SeriesPage apiKey={this.state.apiKey} />} />
+            <Route path="SeriesInstancePage/*" element={<SeriesInstancePage apiKey={this.state.apiKey} />} />
           </Routes>
         </div>
         <Footer copy={this.state.footerCopy}/>

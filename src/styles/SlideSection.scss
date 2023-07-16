@@ -1,0 +1,23 @@
+$slide-section-background-color: #525FE1;
+$slide-instance-border-color: #FFA41B;
+
+.Slide-instances-container {
+    width: 100vw;
+    padding: 50px;
+
+    overflow-y: hidden;
+    overflow-x: auto;
+    background-color: $slide-section-background-color;
+
+    display: flex;
+    gap: 20px;
+}
+
+.Slide-instances-container div {
+    width: 400px;
+}
+
+.Slide-instances-container div img {
+    width: 100%;
+    border: 2px solid $slide-instance-border-color;
+}

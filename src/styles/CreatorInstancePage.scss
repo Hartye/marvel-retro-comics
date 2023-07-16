@@ -1,10 +1,10 @@
 $image-border-color: #FFA41B;
 
-.Comic-instance {
+.Creator-instance {
     width: 100%;
 }
 
-.Comic-instance div {
+.Creator-instance div {
     display: grid;
     grid-template-columns: 1fr 5fr;
     justify-content: start;
@@ -13,21 +13,21 @@ $image-border-color: #FFA41B;
     padding: 50px;
 }
 
-.Comic-instance div h1 {
+.Creator-instance div h1 {
     font-size: 2.2rem;
 }
 
-.Comic-instance div p {
+.Creator-instance div p {
     font-size: 1.5rem;
 }
 
-.Comic-instance img {
+.Creator-instance img {
     width: 350px;
 
     border: 2px solid $image-border-color;
 }
 
-.Comic-instance div section {
+.Creator-instance div section {
     display: flex;
     flex-direction: column;
     gap: 30px;

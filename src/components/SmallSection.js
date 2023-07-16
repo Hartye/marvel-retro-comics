@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/Global.scss';
-import '../styles/ComicsSmallSection.scss';
+import '../styles/SmallSection.scss';
 
-class ComicsSmallSection extends React.Component {
+class SmallSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ class ComicsSmallSection extends React.Component {
     async componentDidMount() {
         let url =
             'http://gateway.marvel.com/v1/public/' +
-            'comics' + // characters | comics | creators | events | series | stories
+            this.props.target + // characters | comics | creators | events | series | stories
             '?apikey=' + this.props.apiKey;
         let req = new Request(url);
         await fetch(req)
@@ -28,16 +28,16 @@ class ComicsSmallSection extends React.Component {
                         let imageURL = res.data.results[i].thumbnail.path + '/portrait_uncanny.' + res.data.results[i].thumbnail.extension;
                         let htmlContent =
                             `
-                      <a href="/ComicInstancePage/${res.data.results[i].id}">
-                          <div className="Comic-instance" id="${i}">
-                            <img className="Comic-instance-image" src="${imageURL}" alt="Comic" />
+                      <a href="/${this.props.targetPage}/${res.data.results[i].id}">
+                          <div id="${i}">
+                            <img src="${imageURL}" alt="Comic" />
                           </div>
                       </a>
                       `;
                         if (counter > 6) {
-                            document.querySelector(".Comics-slide-row-two").innerHTML += htmlContent;
+                            document.querySelector(".Slide-row-two").innerHTML += htmlContent;
                         } else {
-                            document.querySelector(".Comics-slide-row-one").innerHTML += htmlContent;
+                            document.querySelector(".Slide-row-one").innerHTML += htmlContent;
                         }
                     }
 
@@ -50,13 +50,13 @@ class ComicsSmallSection extends React.Component {
 
     render() {
         return (
-            <div className='Comics-main'>
-                <section className='Comics-instances-container-slide'>
-                    <div className="Comics-slide-row-one"></div>
-                    <div className="Comics-slide-row-two"></div>
+            <div className='Slide-main'>
+                <section className='Slide-instances-container-slide'>
+                    <div className="Slide-row-one"></div>
+                    <div className="Slide-row-two"></div>
                 </section>
             </div>
         )
     }
 }
-export default ComicsSmallSection;
+export default SmallSection;

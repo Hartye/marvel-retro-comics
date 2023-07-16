@@ -3,7 +3,7 @@ $image-border-color: #F86F03;
 $instance-name-color: #FFF;
 $instance-slide-background-color: #525FE1;
 
-.Comics-main {
+.Instances-main {
     width: 100vw;
 
     display: flex;
@@ -11,14 +11,14 @@ $instance-slide-background-color: #525FE1;
     align-items: center;
 }
 
-.Comics-instances-container {
+.Instances-container {
     margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 50px;
 }
 
-.Comics-instances-container div {
+.Instances-container div {
     width: 250px;
     background-color: $instance-background-color;
     overflow: hidden;
@@ -28,7 +28,7 @@ $instance-slide-background-color: #525FE1;
     align-items: center;
 }
 
-.Comics-instances-container div img {
+.Instances-container div img {
     width: 100%; 
     border: 2px solid $image-border-color;
 
@@ -37,14 +37,14 @@ $instance-slide-background-color: #525FE1;
     opacity: 1;
 }
 
-.Comics-instances-container div img:hover {
+.Instances-container div img:hover {
     animation-name: fadeStart;
     animation-duration: .2s;
     opacity: .6;
     cursor: pointer;
 }
 
-.Comics-instances-container div p {
+.Instances-container div p {
     color: $instance-name-color;
     font-size: 1.5rem;
     font-weight: bold;

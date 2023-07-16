@@ -17,11 +17,11 @@ class Header extends React.Component {
                     <img className='Header-image' src={HeaderImage} alt="Marvel comics characters" />
                 </section>
                 <section className='Header-button-section'>
-                    <Button name='Characters' />
-                    <Button name='Creators' />
+                    <Link to="/CharactersPage"><Button name='Characters' /></Link>
+                    <Link to="/CreatorsPage"><Button name='Creators' /></Link>
                     <Link to="/ComicsPage"><Button name='Comics' /></Link>
-                    <Button name='Events' />
-                    <Button name='Series' />
+                    <Link to="/EventsPage"><Button name='Events' /></Link>
+                    <Link to="/SeriesPage"><Button name='Series' /></Link>
                 </section>
             </div>
         )

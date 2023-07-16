@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/Global.scss';
-import '../styles/ComicsPage.scss';
 import '../styles/ComicInstancePage.scss';
-import ComicsSamllSection from './ComicsSmallSection'
+import ComicsSamllSection from '../components/SmallSection'
 
 class ComicsInstance extends React.Component {
     constructor(props) {
@@ -26,18 +25,17 @@ class ComicsInstance extends React.Component {
                 return res.json();
             })
             .then((res) => {
-                console.log(res)
-                let year = res.data.results[0].title.match(/\d+/);
-                if (year != null) {
-                    for (let i = 0; i < year.length; i++) {
-                        if (year[i] > 1800) {
-                            year = year[i];
+                let yearList = res.data.results[0].title.match(/\d+/);
+                let year = 'N/A';
+                if (yearList != null) {
+                    for (let i = 0; i < yearList.length; i++) {
+                        if (yearList[i].length >= 4) {
+                            year = yearList[i];
                         }
                     }
-                } else {
-                    year = 'N/A';
                 }
 
+                // Comic Creators and Artirts
                 let creators = '';
                 let artists = '';
                 let items = res.data.results[0].creators.items;
@@ -55,6 +53,12 @@ class ComicsInstance extends React.Component {
                     artists = 'N/A'
                 }
 
+                // Comic Series
+                let series = res.data.results[0].series.name;
+                if (series == '') {
+                    series = 'N/A'
+                }
+
                 if (this.state.requested == false) {
                     let counter = 0;
                     counter++;
@@ -68,6 +72,7 @@ class ComicsInstance extends React.Component {
                             <p><span style="font-weight: bold">Published At</span>: ${year}</p>
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
+                            <p><span style="font-weight: bold">Series</span>: ${series}</p>
                             <p>${res.data.results[0].description == '' ? 'N/A' : res.data.results[0].description}</p>
                         </section>
                     </div>
@@ -78,7 +83,6 @@ class ComicsInstance extends React.Component {
                 this.setState({
                     requested: true
                 })
-                
             });
     }
 
@@ -87,7 +91,7 @@ class ComicsInstance extends React.Component {
             <div className='ComicsInstance-main'>
                 <section className='Comic-instance'>
                 </section>
-                <ComicsSamllSection apiKey={this.props.apiKey} />
+                <ComicsSamllSection targetPage='ComicInstancePage' target='comics' apiKey={this.props.apiKey} />
             </div>
         )
     }
