@@ -37,6 +37,11 @@ $search-bar-font-color: #FFA41B;
     gap: 20px;
 }
 
+.Search-instance > div div:hover {
+    animation: hoverStart .2s;
+    transform: scale(.98);
+}
+
 .Search-instance > div div p {
     font-size: 1.5rem;
 
@@ -53,4 +58,40 @@ $search-bar-font-color: #FFA41B;
 .Search-instance > div > div p:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, .1);
+}
+
+// Resolution
+@media screen and (max-width: 1150px) {
+    .Search-instance {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .Search-instance > div {
+        margin-top: 20px;
+        width: 70vw;
+    }
+    .Search-instance > div div p {
+        justify-content: center;
+    }
+    .Search-bar {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Search-bar {
+        width: 80vw;
+    }
+    .Search-instance > div {
+        width: 80vw;
+    }
+}
+
+// Animations 
+@keyframes hoverStart {
+    0% {
+        transform: scale(1);
+    } 100% {
+        transform: scale(.98);
+    }
 }

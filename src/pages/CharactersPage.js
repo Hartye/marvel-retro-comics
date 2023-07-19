@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Global.scss';
-import SearchSection from '../components/SearchSection'
-import ImageList from '../components/ImageList'
+import SearchSection from '../components/SearchSection';
+import ImageList from '../components/ImageList';
 
 class Characters extends React.Component {
     constructor(props) {

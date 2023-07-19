@@ -42,11 +42,51 @@ html, body {
     animation-duration: .2s;
 }
 
+.Reload-screen-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #D9D9D9;
+}
+
+.Reload-screen-main img {
+    width: 100px;
+    animation: infinite-rotation 2s linear infinite;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+// Resolution
+@media screen and (max-width: 1150px) {
+    .btn {
+        padding: .2rem;
+        width: 100px;
+        font-size: 1.1rem;
+    }
+}
+
 // Animations
 @keyframes button-clicked {
     50% {
         transform: scale(1.1);
     } 100% {
         transform: scale(1);
+    }
+}
+
+@keyframes infinite-rotation {
+    0% {
+        transform: rotate(0deg);
+    } 50% {
+        transform: rotate(180deg);
+    } 100% {
+        transform: rotate(360deg);
     }
 }

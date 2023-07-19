@@ -5,9 +5,6 @@ import '../styles/SmallSection.scss';
 class SmallSection extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            requested: false
-        }
     }
 
     async componentDidMount() {
@@ -21,29 +18,17 @@ class SmallSection extends React.Component {
                 return res.json();
             })
             .then((res) => {
-                if (this.state.requested == false) {
-                    let counter = 0;
-                    for (let i = 8; i < res.data.count; i++) {
-                        counter++;
-                        let imageURL = res.data.results[i].thumbnail.path + '/portrait_uncanny.' + res.data.results[i].thumbnail.extension;
-                        let htmlContent =
-                            `
-                      <a href="/${this.props.targetPage}/${res.data.results[i].id}">
-                          <div id="${i}">
-                            <img src="${imageURL}" alt="Comic" />
-                          </div>
-                      </a>
-                      `;
-                        if (counter > 6) {
-                            document.querySelector(".Slide-row-two").innerHTML += htmlContent;
-                        } else {
-                            document.querySelector(".Slide-row-one").innerHTML += htmlContent;
-                        }
-                    }
-
-                    this.setState({
-                        requested: true
-                    })
+                for (let i = 8; i < res.data.count; i++) {
+                    let imageURL = res.data.results[i].thumbnail.path + '/portrait_uncanny.' + res.data.results[i].thumbnail.extension;
+                    let htmlContent =
+                        `
+                    <a href="/${this.props.targetPage}/${res.data.results[i].id}">
+                        <div id="${i}">
+                        <img src="${imageURL}" alt="Comic" />
+                        </div>
+                    </a>
+                    `;
+                    document.querySelector(".Slide-row").innerHTML += htmlContent;
                 }
             })
     }
@@ -52,8 +37,7 @@ class SmallSection extends React.Component {
         return (
             <div className='Slide-main'>
                 <section className='Slide-instances-container-slide'>
-                    <div className="Slide-row-one"></div>
-                    <div className="Slide-row-two"></div>
+                    <div className="Slide-row"></div>
                 </section>
             </div>
         )

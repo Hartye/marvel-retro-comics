@@ -55,6 +55,31 @@ $instance-slide-background-color: #525FE1;
     text-overflow: ellipsis;
 }
 
+// Resolution
+@media screen and (max-width: 1150px) {
+    .Instances-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .Instances-container div {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .Instances-container div {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Instances-container div {
+        width: 90vw;
+    }
+}
+
 // Animations
 @keyframes fadeStart {
     0% {

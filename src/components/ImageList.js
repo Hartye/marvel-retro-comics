@@ -5,9 +5,22 @@ import '../styles/ImageList.scss';
 class Instances extends React.Component {
     constructor(props) {
         super(props);
+        this.makeRequest = this.makeRequest.bind(this);
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.makeRequest();
+
+        window.addEventListener('resize', this.makeRequest);
+    }
+
+    async makeRequest() {
+        let portraitType = '';
+        if (window.innerWidth <= 450) {
+            portraitType = 'landscape_amazing';
+        } else {
+            portraitType = 'portrait_uncanny';
+        }
         let url =
             'http://gateway.marvel.com/v1/public/' +
             this.props.target + // characters | comics | creators | events | series | stories
@@ -21,7 +34,7 @@ class Instances extends React.Component {
                 console.log(res);
                 document.querySelector(".Instances-container").innerHTML = '';
                 for (let i = 0; i < 8; i++) {
-                    let imageURL = res.data.results[i].thumbnail.path + '/portrait_uncanny.' + res.data.results[i].thumbnail.extension;
+                    let imageURL = res.data.results[i].thumbnail.path + '/' + portraitType +'.' + res.data.results[i].thumbnail.extension;
                     let htmlContent =
                         `
                     <a href="/${this.props.targetPage}/${res.data.results[i].id}">

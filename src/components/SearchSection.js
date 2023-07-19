@@ -19,13 +19,12 @@ class Search extends React.Component {
                 return res.json();
             })
             .then((res) => {
-                console.log(res);
                 for (let i = 0; i < res.data.results.length; i++) {
                     let htmlContent = 
                         `
                     <a href="/${this.props.targetPage}/${res.data.results[i].id}">
                         <div id="${res.data.results[i].id}">
-                            <p>${this.props.search == 'creators' ? res.data.results[i].fullName : this.props.search == 'events' || this.props.search == 'series' ? res.data.results[i].title : res.data.results[i].name}</p>
+                            <p>${this.props.search == 'characters' ? res.data.results[i].name : this.props.search == 'creators' ? res.data.results[i].fullName : res.data.results[i].title}</p>
                         </div>
                     </a>
                     `;
@@ -69,7 +68,7 @@ class Search extends React.Component {
                             document.querySelector(".Search-instance-row-one").innerHTML += htmlContent;
                         }
                     }
-                });
+                })
         }
     }
 

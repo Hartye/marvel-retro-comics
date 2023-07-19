@@ -32,3 +32,9 @@ $button-background-color-hover-selected: #525FE1;
     background-color: $button-background-color-hover-selected;
     color: $button-background-color;
 }
+
+@media screen and (max-width: 1150px) {
+    .Header-button-section {
+        flex-wrap: wrap;
+    }
+}

@@ -11,7 +11,7 @@ import EventsPage from './pages/EventsPage';
 import EventInstancePage from './pages/EventInstancePage';
 import SeriesPage from './pages/SeriesPage';
 import SeriesInstancePage from './pages/SeriesInstancePage'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.scss';
 import './styles/Global.scss';
 
@@ -50,6 +50,7 @@ class App extends React.Component {
         <Header />
         <div className="App-content">
           <Routes>
+            <Route path="/" element={<Navigate to="ComicsPage" />} />
             <Route path="ComicsPage" element={<ComicsPage apiKey={this.state.apiKey}/>} />
             <Route path="ComicInstancePage/*" element={<ComicInstancePage apiKey={this.state.apiKey}/>} />
             <Route path="CharactersPage" element={<CharactersPage apiKey={this.state.apiKey}/>} />
