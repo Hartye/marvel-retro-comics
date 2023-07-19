@@ -1,5 +1,11 @@
-$button-background-color: #FFA41B;
-$button-background-color-hover-selected: #525FE1;
+$button-background-color: #FF8303;
+$button-background-color-hover-selected: #1B1A17;
+$header-image-background-color: #1B1A17;
+
+.Header-main {
+    background-color: $header-image-background-color;
+    padding: 20px 0;
+}
 
 .Header-image-section {
     width: 100vw;
@@ -10,10 +16,9 @@ $button-background-color-hover-selected: #525FE1;
 .Header-image {
     width: 90vw;
     height: 120px;
-    margin-top: 20px;
     object-fit: cover;
     object-position: 50% 30%;
-    border: 2px solid #FFA41B;
+    border-radius: 20px;
 }
 
 .Header-button-section {

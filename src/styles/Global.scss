@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
-$body-background-color: #D9D9D9;
-$global-font-color: #525FE1;
+$body-background-color: #F0E3CA;
+$global-font-color: #1B1A17;
 
 * {
     font-family: 'Roboto Condensed';
@@ -74,10 +74,12 @@ html, body {
 
 // Animations
 @keyframes button-clicked {
-    50% {
-        transform: scale(1.1);
-    } 100% {
+    0% {
         transform: scale(1);
+    } 50% {
+        transform: scale(.98);
+    } 100% {
+        transform: rotate(1);
     }
 }
 

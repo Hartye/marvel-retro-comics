@@ -12,7 +12,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='Header-main'>
                 <section className="Header-image-section">
                     <img className='Header-image' src={HeaderImage} alt="Marvel comics characters" />
                 </section>
