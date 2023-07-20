@@ -1,6 +1,21 @@
 $image-border-color: #FF8303;
 $info-background-color: #1B1A17;
 $info-color: #FF8303;
+$go-back-button-background-color: #1B1A17;
+$go-back-button-font-color: #F0E3CA;
+
+.Go-back-button-div {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    padding: 0 50px;
+}
+
+.Go-back-button {
+    background-color: $go-back-button-background-color;
+    color: $go-back-button-font-color;
+}
 
 .Detail-instance {
     width: 100%;
@@ -12,7 +27,7 @@ $info-color: #FF8303;
     justify-content: start;
     gap: 20px;
 
-    padding: 50px;
+    padding: 0 50px;
 }
 
 .Detail-instance div h1 {
@@ -38,6 +53,7 @@ $info-color: #FF8303;
 }
 
 .Detail-instance div section {
+    width: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;

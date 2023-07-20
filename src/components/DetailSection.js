@@ -1,8 +1,18 @@
 import React from 'react';
 import '../styles/Global.scss';
 import '../styles/DetailInstancePage.scss';
+import { useNavigate } from 'react-router-dom'
 
 // Props: target, apiKey, targetPage
+
+const GoBackButton = () => {
+    const navigate = useNavigate();
+    return (
+        <>
+            <button className='btn Go-back-button' onClick={() => navigate(-1)}>Back</button>
+        </>
+    )
+}
 
 class DetailSection extends React.Component {
     constructor(props) {
@@ -88,17 +98,17 @@ class DetailSection extends React.Component {
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
                             <p><span style="font-weight: bold">Series</span>: ${series}</p>
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' ? 'N/A' : res.data.results[0].description}</p>`
+                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
                             : this.props.target == 'events' ? `
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' ? 'N/A' : res.data.results[0].description}</p>`
+                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
                             : this.props.target == 'series' ? `
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' ? 'N/A' : res.data.results[0].description}</p>`
+                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
                             : this.props.target == 'characters' ? `
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' ? 'N/A' : res.data.results[0].description}</p>`
+                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
                             : `<span style="display: none" />`
                         }
                     </section>
@@ -111,6 +121,9 @@ class DetailSection extends React.Component {
     render() {
         return (
             <div className='Instance-main'>
+                <div class="Go-back-button-div">
+                    <GoBackButton />
+                </div>
                 <section className='Detail-instance'>
                 </section>
             </div>
