@@ -76,8 +76,8 @@ class DetailSection extends React.Component {
                         <h1>${this.props.target == 'characters' ? res.data.results[0].name : this.props.target == 'creators' ? res.data.results[0].fullName : res.data.results[0].title}</h1>
                         ${this.props.target == 'creators' ? `
                             <div>
-                                <button value="Description" class="btn">+ Description</button>
-                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                                <button value="Series" class="btn">+ Series</button>
+                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.available == 0 ? 'N/A' : res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
                             </div>`
                         : this.props.target == 'comics' ? `
                             <p><span style="font-weight: bold">Published At</span>: ${year}</p>
@@ -89,7 +89,7 @@ class DetailSection extends React.Component {
                             </div>
                             <div>
                                 <button value="Characters" class="btn">+ Characters</button>
-                                <p><span style="font-weight: bold">Characters</span>: ${res.data.results[0].characters.items.map(i => ` <a href='/CharacterInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                                <p><span style="font-weight: bold">Characters</span>: ${res.data.results[0].characters.available == 0 ? 'N/A' : res.data.results[0].characters.items.map(i => ` <a href='/CharacterInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
                             </div>
                             <div>
                                 <button value="Description" class="btn">+ Description</button>
@@ -100,7 +100,7 @@ class DetailSection extends React.Component {
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
                             <div>
                                 <button value="Series" class="btn">+ Series</button>
-                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.available == 0 ? 'N/A' : res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
                             </div>
                             <div>
                                 <button value="Description" class="btn">+ Description</button>
@@ -116,7 +116,7 @@ class DetailSection extends React.Component {
                             : this.props.target == 'characters' ? `
                             <div>
                                 <button value="Series" class="btn">+ Series</button>
-                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.available == 0 ? 'N/A' : res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
                             </div>
                             <div>
                                 <button value="Description" class="btn">+ Description</button>
