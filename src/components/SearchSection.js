@@ -19,6 +19,8 @@ class Search extends React.Component {
                 return res.json();
             })
             .then((res) => {
+                document.querySelector(".Search-instance-row-two").innerHTML = '';
+                document.querySelector(".Search-instance-row-one").innerHTML = '';
                 for (let i = 0; i < res.data.results.length; i++) {
                     let htmlContent = 
                         `

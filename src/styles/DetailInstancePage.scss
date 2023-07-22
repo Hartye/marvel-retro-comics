@@ -1,8 +1,10 @@
 $image-border-color: #FF8303;
 $info-background-color: #1B1A17;
 $info-color: #FF8303;
+$hover-info-color: #F0E3CA;
 $go-back-button-background-color: #1B1A17;
 $go-back-button-font-color: #F0E3CA;
+$characters-button-background-color: #FF8303;
 
 .Go-back-button-div {
     margin: 20px 0;
@@ -21,7 +23,7 @@ $go-back-button-font-color: #F0E3CA;
     width: 100%;
 }
 
-.Detail-instance div {
+.Detail-instance > div {
     display: grid;
     grid-template-columns: 1fr 5fr;
     justify-content: start;
@@ -35,9 +37,13 @@ $go-back-button-font-color: #F0E3CA;
     color: $info-color;
 }
 
-.Detail-instance div p {
+.Detail-instance div p, .Detail-instance div p a {
     font-size: 1.5rem;
     color: $info-color;
+}
+
+.Detail-instance div p a:hover {
+    color: $hover-info-color;
 }
 
 .Detail-instance div span {
@@ -62,6 +68,22 @@ $go-back-button-font-color: #F0E3CA;
     border-radius: 0px 50px 0px 0px;
 }
 
+.Detail-instance > div > section  div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Detail-instance > div > section div button {
+    width: 50%;
+    box-shadow: none;
+    background-color: $characters-button-background-color;
+}
+
+.Detail-instance > div > section  div p {
+    display: none;
+}
+
 // Resolution
 @media screen and (max-width: 800px) {
     .Detail-instance div {
@@ -80,5 +102,9 @@ $go-back-button-font-color: #F0E3CA;
         object-fit: scale-down;
         object-position: bottom;
         border-radius: 0px 0px 0px 0px;
+    }
+
+    .Detail-instance > div > section div button {
+        width: 100%;
     }
 }

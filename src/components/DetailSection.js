@@ -20,8 +20,7 @@ class DetailSection extends React.Component {
     }
 
     async componentDidMount() {
-        let id = window.location.pathname.split('/');
-        id = id[id.length - 1];
+        let id = window.location.pathname.split('/').slice(-1);
         let url =
             'http://gateway.marvel.com/v1/public/' +
             this.props.target + '/' + // characters | comics | creators | events | series | stories
@@ -33,7 +32,6 @@ class DetailSection extends React.Component {
                 return res.json();
             })
             .then((res) => {
-                console.log(url)
                 console.log(res);
                 let yearList, year, series, artists, creators, items;
 
@@ -46,12 +44,6 @@ class DetailSection extends React.Component {
                                 year = yearList[i];
                             }
                         }
-                    }
-
-                    // Comic Series
-                    series = res.data.results[0].series.name;
-                    if (series == '') {
-                        series = 'N/A'
                     }
                 }
 
@@ -75,14 +67,6 @@ class DetailSection extends React.Component {
                     }
                 }
 
-                if (this.props.target == 'creators') {
-                    series = '';
-
-                    for (let i = 0; i < res.data.results[0].series.items.length; i++) {
-                        series += res.data.results[0].series.items[i].name + '. ';
-                    }
-                }
-
                 let imageURL = res.data.results[0].thumbnail.path + '/portrait_uncanny.' + res.data.results[0].thumbnail.extension;
                 let htmlContent =
                     `
@@ -90,32 +74,82 @@ class DetailSection extends React.Component {
                     <img src="${imageURL}" alt="Comic" />
                     <section>
                         <h1>${this.props.target == 'characters' ? res.data.results[0].name : this.props.target == 'creators' ? res.data.results[0].fullName : res.data.results[0].title}</h1>
-                        ${
-                            this.props.target == 'creators' ? `
-                            <p><span style="font-weight: bold">Series</span>: ${series}</p>`
-                            : this.props.target == 'comics' ? `
+                        ${this.props.target == 'creators' ? `
+                            <div>
+                                <button value="Description" class="btn">+ Description</button>
+                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                            </div>`
+                        : this.props.target == 'comics' ? `
                             <p><span style="font-weight: bold">Published At</span>: ${year}</p>
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
-                            <p><span style="font-weight: bold">Series</span>: ${series}</p>
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
+                            <div>
+                                <button value="Series" class="btn">+ Series</button>
+                                <p><span style="font-weight: bold">Series</span>: ${` <a href='/SeriesInstancePage/${res.data.results[0].series.resourceURI.split('/').slice(-1)}'>${res.data.results[0].series.name}</a>`}</p>
+                            </div>
+                            <div>
+                                <button value="Characters" class="btn">+ Characters</button>
+                                <p><span style="font-weight: bold">Characters</span>: ${res.data.results[0].characters.items.map(i => ` <a href='/CharacterInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                            </div>
+                            <div>
+                                <button value="Description" class="btn">+ Description</button>
+                                <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>
+                            </div>`
                             : this.props.target == 'events' ? `
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
+                            <div>
+                                <button value="Series" class="btn">+ Series</button>
+                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                            </div>
+                            <div>
+                                <button value="Description" class="btn">+ Description</button>
+                                <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>
+                            </div>`
                             : this.props.target == 'series' ? `
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
+                            <div>
+                                <button value="Description" class="btn">+ Description</button>
+                                <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>
+                            </div>`
                             : this.props.target == 'characters' ? `
-                            <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>`
+                            <div>
+                                <button value="Series" class="btn">+ Series</button>
+                                <p><span style="font-weight: bold">Series</span>: ${res.data.results[0].series.items.map(i => ` <a href='/SeriesInstancePage/${i.resourceURI.split('/').slice(-1)}'>${i.name}</a>`)}</p>
+                            </div>
+                            <div>
+                                <button value="Description" class="btn">+ Description</button>
+                                <p><span style="font-weight: bold">Description</span>: ${res.data.results[0].description == '' || res.data.results[0].description == null ? 'N/A' : res.data.results[0].description}</p>
+                            </div>`
                             : `<span style="display: none" />`
-                        }
+                    }
                     </section>
                 </div>
                 `;
-                document.querySelector(".Detail-instance").innerHTML += htmlContent;
+                document.querySelector(".Detail-instance").innerHTML = htmlContent;
             });
+        
+        document.querySelector(".Detail-instance > div > section").addEventListener('click', this.ElementColapse);
+    }
+
+    ElementColapse(event) {
+        let clickedTag = event.target.value;
+        let pTag = event.target.parentNode.children[1];
+        let buttonTag = event.target;
+        
+        if (clickedTag == 'Characters' || clickedTag == 'Description' || clickedTag == 'Series' || clickedTag == 'Writers' || clickedTag == 'Artists') {
+            if (pTag.style.display == 'none') {
+                pTag.style.display = 'block';
+                buttonTag.innerText = '- ' + buttonTag.value;
+            } else if (pTag.style.display == 'block') {
+                pTag.style.display = 'none';
+                buttonTag.innerText = '+ ' + buttonTag.value;
+            } else {
+                pTag.style.display = 'block';
+                buttonTag.innerText = '- ' + buttonTag.value;
+            };
+        }
     }
 
     render() {

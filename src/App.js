@@ -1,6 +1,9 @@
+// React
 import React from 'react';
+// Components
 import Header from './components/Header';
 import Footer from './components/Footer';
+// Pages
 import ComicsPage from './pages/ComicsPage';
 import ComicInstancePage from './pages/ComicInstancePage';
 import CharactersPage from './pages/CharactersPage';
@@ -11,7 +14,9 @@ import EventsPage from './pages/EventsPage';
 import EventInstancePage from './pages/EventInstancePage';
 import SeriesPage from './pages/SeriesPage';
 import SeriesInstancePage from './pages/SeriesInstancePage'
+// Router
 import { Routes, Route, Navigate } from 'react-router-dom';
+// Styles
 import './App.scss';
 import './styles/Global.scss';
 

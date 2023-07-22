@@ -18,6 +18,7 @@ class SmallSection extends React.Component {
                 return res.json();
             })
             .then((res) => {
+                document.querySelector(".Slide-row").innerHTML = '';
                 for (let i = 8; i < res.data.count; i++) {
                     let imageURL = res.data.results[i].thumbnail.path + '/portrait_uncanny.' + res.data.results[i].thumbnail.extension;
                     let htmlContent =
