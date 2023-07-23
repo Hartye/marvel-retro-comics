@@ -36,7 +36,8 @@ class App extends React.Component {
     let url =
       'http://gateway.marvel.com/v1/public/' +
       'comics' + // characters | comics | creators | events | series | stories
-      '?apikey=' + this.state.apiKey;
+      '?ts=2023&apikey=' + this.state.apiKey +
+      '&hash=bf642548afd4b9bff303766d11f7b155';
     let req = new Request(url);
     await fetch(req)
       .then((res) => {
