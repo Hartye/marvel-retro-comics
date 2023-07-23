@@ -43,7 +43,7 @@ class Search extends React.Component {
     async searchChar(event) {
         if (event.key == 'Enter') {
             let url =
-                'http://gateway.marvel.com/v1/public/' +
+                'https://gateway.marvel.com/v1/public/' +
                 this.props.search + // characters | comics | creators | events | series | stories
                 `?${this.props.search == 'comics' || this.props.search == 'series' ? 'title' : 'name'}StartsWith=` + event.target.value +
                 '&apikey=' + this.props.apiKey;
