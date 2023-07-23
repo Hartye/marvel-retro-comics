@@ -34,7 +34,7 @@ class App extends React.Component {
 
   async componentDidMount() {
     let url =
-      'http://gateway.marvel.com/v1/public/' +
+      'https://gateway.marvel.com/v1/public/' +
       'comics' + // characters | comics | creators | events | series | stories
       '?apikey=' + this.state.apiKey;
     let req = new Request(url);

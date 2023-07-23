@@ -22,7 +22,7 @@ class Instances extends React.Component {
             portraitType = 'portrait_uncanny';
         }
         let url =
-            'http://gateway.marvel.com/v1/public/' +
+            'https://gateway.marvel.com/v1/public/' +
             this.props.target + // characters | comics | creators | events | series | stories
             '?apikey=' + this.props.apiKey;
         let req = new Request(url);

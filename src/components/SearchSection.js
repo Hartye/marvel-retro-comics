@@ -10,7 +10,7 @@ class Search extends React.Component {
 
     async componentDidMount() {
         let url =
-            'http://gateway.marvel.com/v1/public/' +
+            'https://gateway.marvel.com/v1/public/' +
             this.props.search + // characters | comics | creators | events | series | stories
             '?apikey=' + this.props.apiKey;
         let req = new Request(url);

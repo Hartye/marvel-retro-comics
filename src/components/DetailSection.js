@@ -22,7 +22,7 @@ class DetailSection extends React.Component {
     async componentDidMount() {
         let id = window.location.pathname.split('/').slice(-1);
         let url =
-            'http://gateway.marvel.com/v1/public/' +
+            'https://gateway.marvel.com/v1/public/' +
             this.props.target + '/' + // characters | comics | creators | events | series | stories
             id +
             '?apikey=' + this.props.apiKey;
