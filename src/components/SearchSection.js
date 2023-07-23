@@ -13,7 +13,7 @@ class Search extends React.Component {
             'http://gateway.marvel.com/v1/public/' +
             this.props.search + // characters | comics | creators | events | series | stories
             '?ts=2023&apikey=' + this.props.apiKey +
-            '&hash=BF642548AFD4B9BFF303766D11F7B155';
+            '&hash=bf642548afd4b9bff303766d11f7b155';
         let req = new Request(url);
         await fetch(req)
             .then((res) => {
