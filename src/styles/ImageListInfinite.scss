@@ -1,0 +1,147 @@
+$Instance-main-background-color: #FF8303;
+$instance-background-color: #1B1A17;
+$image-border-color: #1B1A17;
+$instance-name-color: #F0E3CA;
+$instance-slide-background-color: #1B1A17;
+
+.InstancesInfinite-main {
+    margin-top: 50px;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.InstancesInfinite-main h1 {
+    font-size: 2rem;
+    padding: 2rem;
+    background-color: $Instance-main-background-color;
+    border-radius: 50px 50px 0 0;
+
+    align-self: flex-start;
+    margin-left: 100px;
+}
+
+.InstancesInfinite-container {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px;
+    background-color: $Instance-main-background-color;
+}
+
+.InstancesInfinite-container div, .InstancesInfinite-container button {
+    width: 250px;
+    background-color: $instance-background-color;
+    overflow: hidden;
+    border-radius: 0px 20px 0px 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.InstancesInfinite-container div img {
+    width: 100%; 
+    border: 2px solid $image-border-color;
+    border-radius: 0px 20px 0px 50px;
+
+    animation-name: fadeEnd;
+    animation-duration: .2s;
+    opacity: 1;
+}
+
+.InstancesInfinite-container div img:hover {
+    animation-name: fadeStart;
+    animation-duration: .2s;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.InstancesInfinite-container div p {
+    color: $instance-name-color;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: end;
+    padding: 5px;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.InstancesInfinite-container button {
+    font-size: 3rem;
+    color: $instance-name-color;
+    height: 250px;
+    line-height: 250px;
+    border-radius: 20px 20px 200px 200px;
+    box-shadow: none;
+}
+
+// Resolution
+@media screen and (max-width: 1150px) {
+    .InstancesInfinite-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .InstancesInfinite-main h1 {
+        margin-left: 80px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .InstancesInfinite-container div, .InstancesInfinite-container button {
+        width: 180px;
+    }
+
+    .InstancesInfinite-main h1 {
+        margin-left: 60px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .InstancesInfinite-container button {
+        height: inherit;
+        line-height: inherit;
+        border-radius: 50px;
+    }
+
+    .InstancesInfinite-main h1 {
+        margin-left: 40px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .InstancesInfinite-container div, .InstancesInfinite-container button {
+        width: 90vw;
+    }
+
+    .InstancesInfinite-main h1 {
+        margin-left: 20px;
+    }
+}
+
+// Animations
+@keyframes fadeStart {
+    0% {
+        opacity: 1;
+    } 50% {
+        opacity: .8;
+    } 100% {
+        opacity: .6;
+    }
+}
+
+@keyframes fadeEnd {
+    0% {
+        opacity: .6;
+    } 50% {
+        opacity: .8;
+    } 100% {
+        opacity: 1;
+    }
+}

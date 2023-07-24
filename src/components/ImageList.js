@@ -45,7 +45,6 @@ class Instances extends React.Component {
                         </div>
                     </a>
                     `;
-                    console.log(imageURL);
                     document.querySelector(".Instances-container").innerHTML += htmlContent;
                 }
             })
