@@ -35,8 +35,8 @@ class SmallSection extends React.Component {
         
         localData = JSON.parse(localStorage.getItem(this.props.storeId));
         document.querySelector(".Slide-row").innerHTML = '';
-        for (let i = 8; i < localData.data.count; i++) {
-            let imageURL = localData.data.results[i].thumbnail.path + '/portrait_uncanny.' + localData.data.results[i].thumbnail.extension;
+        for (let i = 0; i < localData.data.count; i++) {
+            let imageURL = localData.data.results[i].thumbnail.path.replace("http", "https") + '/portrait_uncanny.' + localData.data.results[i].thumbnail.extension;
             let htmlContent =
                 `
             <a href="/${this.props.targetPage}/${localData.data.results[i].id}">

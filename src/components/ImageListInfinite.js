@@ -71,7 +71,7 @@ class InstancesInfinite extends React.Component {
                 document.querySelector(`#${this.props.format.replace(" ", "")}`).innerHTML += `<button value="+" class="btn ${this.props.format.replace(" ", "")}" id="${elementsId}">+</button>`;
             }
 
-            let imageURL = localData.data.results[i].thumbnail.path + '/' + portraitType +'.' + localData.data.results[i].thumbnail.extension;
+            let imageURL = localData.data.results[i].thumbnail.path.replace("http", "https") + '/' + portraitType +'.' + localData.data.results[i].thumbnail.extension;
             let htmlContent =
                 `
             <a href="/${this.props.targetPage}/${localData.data.results[i].id}" id="${elementsId}">
