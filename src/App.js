@@ -28,7 +28,8 @@ class App extends React.Component {
     this.state = {
       pagePath: '',
       footerCopy: '',
-      apiKey: '86cb2be8aecbf307ae51cbfb3804be73'
+      apiKey: '3ba73c1775850bd66035aae90c2baa76', // 86cb2be8aecbf307ae51cbfb3804be73
+      hash: '6d8929bc52e7ecf2762f8d7b19c279cc' // bf642548afd4b9bff303766d11f7b155
     }
   }
 
@@ -37,7 +38,7 @@ class App extends React.Component {
       'https://gateway.marvel.com/v1/public/' +
       'comics' + // characters | comics | creators | events | series | stories
       '?ts=2023&apikey=' + this.state.apiKey +
-      '&hash=bf642548afd4b9bff303766d11f7b155';
+      '&hash=' + this.state.hash;
     let req = new Request(url);
     await fetch(req)
       .then((res) => {
@@ -57,16 +58,16 @@ class App extends React.Component {
         <div className="App-content">
           <Routes>
             <Route path="/" element={<Navigate to="ComicsPage" />} />
-            <Route path="ComicsPage" element={<ComicsPage apiKey={this.state.apiKey}/>} />
-            <Route path="ComicInstancePage/*" element={<ComicInstancePage apiKey={this.state.apiKey}/>} />
-            <Route path="CharactersPage" element={<CharactersPage apiKey={this.state.apiKey}/>} />
-            <Route path="CharacterInstancePage/*" element={<CharacterInstancePage apiKey={this.state.apiKey}/>} />
-            <Route path="CreatorsPage" element={<CreatorsPage apiKey={this.state.apiKey} />} />
-            <Route path="CreatorInstancePage/*" element={<CreatorInstancePage apiKey={this.state.apiKey} />} />
-            <Route path="EventsPage" element={<EventsPage apiKey={this.state.apiKey} />} />
-            <Route path="EventInstancePage/*" element={<EventInstancePage apiKey={this.state.apiKey} />} />
-            <Route path="SeriesPage" element={<SeriesPage apiKey={this.state.apiKey} />} />
-            <Route path="SeriesInstancePage/*" element={<SeriesInstancePage apiKey={this.state.apiKey} />} />
+            <Route path="ComicsPage" element={<ComicsPage hash={this.state.hash} apiKey={this.state.apiKey}/>} />
+            <Route path="ComicInstancePage/*" element={<ComicInstancePage hash={this.state.hash} apiKey={this.state.apiKey}/>} />
+            <Route path="CharactersPage" element={<CharactersPage hash={this.state.hash} apiKey={this.state.apiKey}/>} />
+            <Route path="CharacterInstancePage/*" element={<CharacterInstancePage hash={this.state.hash} apiKey={this.state.apiKey}/>} />
+            <Route path="CreatorsPage" element={<CreatorsPage hash={this.state.hash} apiKey={this.state.apiKey} />} />
+            <Route path="CreatorInstancePage/*" element={<CreatorInstancePage hash={this.state.hash} apiKey={this.state.apiKey} />} />
+            <Route path="EventsPage" element={<EventsPage hash={this.state.hash} apiKey={this.state.apiKey} />} />
+            <Route path="EventInstancePage/*" element={<EventInstancePage hash={this.state.hash} apiKey={this.state.apiKey} />} />
+            <Route path="SeriesPage" element={<SeriesPage hash={this.state.hash} apiKey={this.state.apiKey} />} />
+            <Route path="SeriesInstancePage/*" element={<SeriesInstancePage hash={this.state.hash} apiKey={this.state.apiKey} />} />
           </Routes>
         </div>
         <Footer copy={this.state.footerCopy}/>

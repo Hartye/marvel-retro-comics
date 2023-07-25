@@ -11,8 +11,8 @@ class EventInstance extends React.Component {
     render() {
         return (
             <div className='EventInstance-main'>
-                <DetailSection targetPage='EventInstancePage' target='events' apiKey={this.props.apiKey} />
-                <SmallSection targetPage='EventInstancePage' target='events' apiKey={this.props.apiKey} />
+                <DetailSection targetPage='EventInstancePage' target='events' hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SmallSection targetPage='EventInstancePage' target='events' hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )
     }

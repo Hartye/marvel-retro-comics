@@ -12,7 +12,7 @@ class SmallSection extends React.Component {
             'https://gateway.marvel.com/v1/public/' +
             this.props.target + // characters | comics | creators | events | series | stories
             '?ts=2023&apikey=' + this.props.apiKey +
-            '&hash=bf642548afd4b9bff303766d11f7b155';
+            '&hash=' + this.props.hash;
         let req = new Request(url);
         await fetch(req)
             .then((res) => {

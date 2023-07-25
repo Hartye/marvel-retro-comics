@@ -10,7 +10,7 @@ class CreatorInstance extends React.Component {
     render() {
         return (
             <div className='CreatorInstance-main'>
-                <DetailSection targetPage='CreatorsInstancePage' target='creators' apiKey={this.props.apiKey} />
+                <DetailSection targetPage='CreatorsInstancePage' target='creators' hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )
     }

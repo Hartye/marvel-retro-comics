@@ -10,7 +10,7 @@ class Characters extends React.Component {
     render() {
         return (
             <div className='Characters-main'>
-                <SearchSection targetPage="CreatorInstancePage" search="creators" apiKey={this.props.apiKey} />
+                <SearchSection targetPage="CreatorInstancePage" search="creators" hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )
     }

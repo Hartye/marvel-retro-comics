@@ -13,7 +13,7 @@ class Search extends React.Component {
             'https://gateway.marvel.com/v1/public/' +
             this.props.search + // characters | comics | creators | events | series | stories
             '?ts=2023&apikey=' + this.props.apiKey +
-            '&hash=bf642548afd4b9bff303766d11f7b155';
+            '&hash=' + this.props.hash;
         let req = new Request(url);
         await fetch(req)
             .then((res) => {
@@ -26,7 +26,7 @@ class Search extends React.Component {
                     let htmlContent = 
                         `
                     <a href="/${this.props.targetPage}/${res.data.results[i].id}">
-                        <div id="${res.data.results[i].id}">
+                        <div>
                             <p>${this.props.search == 'characters' ? res.data.results[i].name : this.props.search == 'creators' ? res.data.results[i].fullName : res.data.results[i].title}</p>
                         </div>
                     </a>
@@ -41,11 +41,12 @@ class Search extends React.Component {
     }
 
     async searchChar(event) {
-        if (event.key == 'Enter') {
+        if (event.key == 'Enter' || event.target.value == 'search') {
+            let searchValue = document.querySelector('.Search-bar input').value;
             let url =
                 'https://gateway.marvel.com/v1/public/' +
                 this.props.search + // characters | comics | creators | events | series | stories
-                `?${this.props.search == 'comics' || this.props.search == 'series' ? 'title' : 'name'}StartsWith=` + event.target.value +
+                `?${this.props.search == 'comics' || this.props.search == 'series' ? 'title' : 'name'}StartsWith=` + searchValue +
                 '&apikey=' + this.props.apiKey;
             let req = new Request(url);
             await fetch(req)
@@ -53,7 +54,6 @@ class Search extends React.Component {
                     return res.json();
                 })
                 .then((res) => {
-                    console.log(this.props.search);
                     document.querySelector(".Search-instance-row-one").innerHTML = '';
                     document.querySelector(".Search-instance-row-two").innerHTML = '';
                     for (let i = 0; i < res.data.results.length; i++) {
@@ -78,7 +78,10 @@ class Search extends React.Component {
     render() {
         return (
             <div className='Search-main'>
-                <input type="text" onKeyUp={this.searchChar} className='Search-bar' placeholder='Search' />
+                <div className='Search-bar'>
+                    <input type="text" onKeyUp={this.searchChar} placeholder='Search' />
+                    <button value='search' className='btn' onClick={this.searchChar}>GO</button>
+                </div>
                 <section className='Search-instance'>
                     <div className='Search-instance-row-one' />
                     <div className='Search-instance-row-two' />

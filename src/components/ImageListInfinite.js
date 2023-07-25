@@ -46,7 +46,7 @@ class InstancesInfinite extends React.Component {
             format +
             limit +
             '&ts=2023&apikey=' + this.props.apiKey +
-            '&hash=bf642548afd4b9bff303766d11f7b155';
+            '&hash=' + this.props.hash;
         let req = new Request(url);
         await fetch(req)
             .then((res) => {

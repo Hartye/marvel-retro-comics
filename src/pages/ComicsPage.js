@@ -21,10 +21,12 @@ class Comics extends React.Component {
                     limit="30" 
                     target={this.state.target} 
                     targetPage={this.state.targetPage} 
+                    hash={this.props.hash}
                     apiKey={this.props.apiKey} />
                 <ComicsSamllSection 
                     targetPage={this.state.targetPage} 
                     target={this.state.target} 
+                    hash={this.props.hash}
                     apiKey={this.props.apiKey}/>
                 <InfiniteComicsImageList 
                     title="Infinite Comics" 
@@ -32,6 +34,7 @@ class Comics extends React.Component {
                     limit="30" 
                     target={this.state.target} 
                     targetPage={this.state.targetPage} 
+                    hash={this.props.hash}
                     apiKey={this.props.apiKey} />
                 <InfiniteComicsImageList 
                     title="Trade Paperback" 
@@ -39,6 +42,7 @@ class Comics extends React.Component {
                     limit="30" 
                     target={this.state.target} 
                     targetPage={this.state.targetPage} 
+                    hash={this.props.hash}
                     apiKey={this.props.apiKey} />
             </div>
         )

@@ -18,7 +18,7 @@ class Characters extends React.Component {
                     target="characters"
                     targetPage="CharacterInstancePage"
                     apiKey={this.props.apiKey} />
-                <SearchSection targetPage="CharacterInstancePage" search="characters" apiKey={this.props.apiKey} />
+                <SearchSection targetPage="CharacterInstancePage" search="characters" hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )
     }

@@ -11,8 +11,8 @@ class ComicsInstance extends React.Component {
     render() {
         return (
             <div className='ComicsInstance-main'>
-                <DetailSection targetPage='ComicInstancePage' target='comics' apiKey={this.props.apiKey} />
-                <ComicsSamllSection targetPage='ComicInstancePage' target='comics' apiKey={this.props.apiKey} />
+                <DetailSection targetPage='ComicInstancePage' target='comics' hash={this.props.hash} apiKey={this.props.apiKey} />
+                <ComicsSamllSection targetPage='ComicInstancePage' target='comics' hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )
     }

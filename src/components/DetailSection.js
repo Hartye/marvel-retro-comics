@@ -26,7 +26,7 @@ class DetailSection extends React.Component {
             this.props.target + '/' + // characters | comics | creators | events | series | stories
             id +
             '?ts=2023&apikey=' + this.props.apiKey +
-            '&hash=bf642548afd4b9bff303766d11f7b155';
+            '&hash=' + this.props.hash;
         let req = new Request(url);
         await fetch(req)
             .then((res) => {

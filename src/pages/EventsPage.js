@@ -19,8 +19,8 @@ class Events extends React.Component {
                     target="events"
                     targetPage="EventInstancePage"
                     apiKey={this.props.apiKey} />
-                <SmallSection target="events" targetPage="EventInstancePage" apiKey={this.props.apiKey} />
-                <SearchSection search="events" targetPage="EventInstancePage" apiKey={this.props.apiKey} />
+                <SmallSection target="events" targetPage="EventInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SearchSection search="events" targetPage="EventInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )
     }

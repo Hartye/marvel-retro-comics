@@ -19,8 +19,8 @@ class Series extends React.Component {
                     target="series"
                     targetPage="SeriesInstancePage"
                     apiKey={this.props.apiKey} />
-                <SmallSection target="series" targetPage="SeriesInstancePage" apiKey={this.props.apiKey} />
-                <SearchSection search="series" targetPage="SeriesInstancePage" apiKey={this.props.apiKey} />
+                <SmallSection target="series" targetPage="SeriesInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SearchSection search="series" targetPage="SeriesInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )
     }
