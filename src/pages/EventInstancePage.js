@@ -12,7 +12,12 @@ class EventInstance extends React.Component {
         return (
             <div className='EventInstance-main'>
                 <DetailSection targetPage='EventInstancePage' target='events' hash={this.props.hash} apiKey={this.props.apiKey} />
-                <SmallSection targetPage='EventInstancePage' target='events' hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SmallSection 
+                    targetPage='EventInstancePage' 
+                    target='events' 
+                    storeId ={"EventInstancePage" + "Events" + 'SmallSection'}
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
             </div>
         )
     }

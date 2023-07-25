@@ -12,7 +12,12 @@ class ComicsInstance extends React.Component {
         return (
             <div className='ComicsInstance-main'>
                 <DetailSection targetPage='ComicInstancePage' target='comics' hash={this.props.hash} apiKey={this.props.apiKey} />
-                <ComicsSamllSection targetPage='ComicInstancePage' target='comics' hash={this.props.hash} apiKey={this.props.apiKey} />
+                <ComicsSamllSection 
+                    targetPage='ComicInstancePage' 
+                    target='comics' 
+                    storeId ={"ComicInstancePage" + "comics" + 'SmallSection'}
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
             </div>
         )
     }

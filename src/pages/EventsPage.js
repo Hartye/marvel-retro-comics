@@ -18,6 +18,8 @@ class Events extends React.Component {
                     limit="30"
                     target="events"
                     targetPage="EventInstancePage"
+                    storeId ={"EventInstancePage" + "Events"}
+                    hash={this.props.hash}
                     apiKey={this.props.apiKey} />
                 <SmallSection target="events" targetPage="EventInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
                 <SearchSection search="events" targetPage="EventInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />

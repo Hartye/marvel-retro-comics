@@ -19,19 +19,22 @@ class Comics extends React.Component {
                     title="Comics" 
                     format="comic" 
                     limit="30" 
+                    storeId ={this.state.targetPage + 'comics'}
                     target={this.state.target} 
                     targetPage={this.state.targetPage} 
                     hash={this.props.hash}
                     apiKey={this.props.apiKey} />
                 <ComicsSamllSection 
                     targetPage={this.state.targetPage} 
-                    target={this.state.target} 
-                    hash={this.props.hash}
+                    target={this.state.target}
+                    storeId ={this.state.targetPage + this.state.target + 'SmallSection'}
+                    hash={this.props.hash} 
                     apiKey={this.props.apiKey}/>
                 <InfiniteComicsImageList 
                     title="Infinite Comics" 
                     format="infinite comic" 
                     limit="30" 
+                    storeId ={this.state.targetPage + 'infinitecomic'}
                     target={this.state.target} 
                     targetPage={this.state.targetPage} 
                     hash={this.props.hash}
@@ -40,6 +43,7 @@ class Comics extends React.Component {
                     title="Trade Paperback" 
                     format="trade paperback" 
                     limit="30" 
+                    storeId ={this.state.targetPage + 'tradepaperback'}
                     target={this.state.target} 
                     targetPage={this.state.targetPage} 
                     hash={this.props.hash}

@@ -12,7 +12,12 @@ class CharacterInstance extends React.Component {
         return (
             <div className='CharacterInstance-main'>
                 <DetailSection targetPage='CharacterInstancePage' target='characters' hash={this.props.hash} apiKey={this.props.apiKey} />
-                <SmallSection targetPage='CharacterInstancePage' target='characters' hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SmallSection 
+                    targetPage='CharacterInstancePage' 
+                    target='characters' 
+                    storeId ={"CharacterInstancePage" + "characters" + 'SmallSection'}
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
             </div>
         )
     }

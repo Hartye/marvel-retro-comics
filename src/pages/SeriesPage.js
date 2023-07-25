@@ -18,8 +18,15 @@ class Series extends React.Component {
                     limit="30"
                     target="series"
                     targetPage="SeriesInstancePage"
+                    storeId ={"SeriesInstancePage" + "Series"}
+                    hash={this.props.hash}
                     apiKey={this.props.apiKey} />
-                <SmallSection target="series" targetPage="SeriesInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SmallSection 
+                    target="series" 
+                    targetPage="SeriesInstancePage" 
+                    storeId ={"SeriesInstancePage" + "Series" + 'SmallSection'}
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
                 <SearchSection search="series" targetPage="SeriesInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>
         )

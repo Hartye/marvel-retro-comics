@@ -11,8 +11,17 @@ class SeriesInstance extends React.Component {
     render() {
         return (
             <div className='SeriesInstance-main'>
-                <DetailSection targetPage='SeriesInstancePage' target='series' hash={this.props.hash} apiKey={this.props.apiKey} />
-                <SmallSection targetPage='SeriesInstancePage' target='series' hash={this.props.hash} apiKey={this.props.apiKey} />
+                <DetailSection 
+                    targetPage='SeriesInstancePage' 
+                    target='series' 
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
+                <SmallSection 
+                    targetPage='SeriesInstancePage' 
+                    target='series' 
+                    storeId ={"SeriesInstancePage" + "Series" + 'SmallSection'}
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
             </div>
         )
     }

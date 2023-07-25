@@ -28,8 +28,8 @@ class App extends React.Component {
     this.state = {
       pagePath: '',
       footerCopy: '',
-      apiKey: '3ba73c1775850bd66035aae90c2baa76', // 86cb2be8aecbf307ae51cbfb3804be73
-      hash: '6d8929bc52e7ecf2762f8d7b19c279cc' // bf642548afd4b9bff303766d11f7b155
+      apiKey: '3ba73c1775850bd66035aae90c2baa76', // 86cb2be8aecbf307ae51cbfb3804be73 - 3ba73c1775850bd66035aae90c2baa76
+      hash: '6d8929bc52e7ecf2762f8d7b19c279cc' // bf642548afd4b9bff303766d11f7b155 - 6d8929bc52e7ecf2762f8d7b19c279cc
     }
   }
 
