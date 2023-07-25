@@ -19,8 +19,20 @@ class InstancesInfinite extends React.Component {
 
     async makeRequest() {
         let portraitType = '';
-        let format = this.props.format.replace(" ", "%20") || 'comic';
-        let limit = this.props.limit || '10';
+
+        // protótipos api
+        let format = '';
+        if (this.props.format != "false") {
+            format = '?format='+this.props.format.replace(" ", "%20");
+        }
+        let limit = '';
+        if (this.props.limit != "false") {
+            if (format != '') {
+                limit = '&limit='+this.props.limit;
+            } else {
+                limit = '?limit='+this.props.limit;
+            }
+        }
 
         if (window.innerWidth <= 450) {
             portraitType = 'landscape_amazing';
@@ -31,8 +43,8 @@ class InstancesInfinite extends React.Component {
         let url =
             'https://gateway.marvel.com/v1/public/' +
             this.props.target + // characters | comics | creators | events | series | stories
-            '?format=' + format +
-            '&limit=' + limit +
+            format +
+            limit +
             '&ts=2023&apikey=' + this.props.apiKey +
             '&hash=bf642548afd4b9bff303766d11f7b155';
         let req = new Request(url);
@@ -65,10 +77,19 @@ class InstancesInfinite extends React.Component {
 
                 let elements = document.querySelectorAll(`#${this.props.format.replace(" ", "")} a, #${this.props.format.replace(" ", "")} button`);
                 
+                let firstBtn = true;
                 for (let i = 0; i < elements.length; i++) {
                     if (elements[i].nodeName == 'BUTTON') {
-                        for (let j = i+1; j < i + 11; j++) {
-                            elements[j].style.display = 'none';
+                        if (firstBtn == true) {
+                            for (let j = i+1; j < i + 11; j++) {
+                                elements[j].style.display = 'none';
+                            }
+
+                            firstBtn = false;
+                        } else {
+                            for (let j = i; j < i + 11; j++) {
+                                elements[j].style.display = 'none';
+                            }
                         }
                     }
                 }
@@ -79,6 +100,7 @@ class InstancesInfinite extends React.Component {
 
     ElementColapse(event) {
         let elements = document.querySelectorAll(`#${this.props.format.replace(" ", "")} a, #${this.props.format.replace(" ", "")} button`);
+        let buttons = document.querySelectorAll(`#${this.props.format.replace(" ", "")} button`);
         
         if (event.target.nodeName == 'BUTTON') {
             if (event.target.value == '+') {
@@ -90,12 +112,27 @@ class InstancesInfinite extends React.Component {
                         elements[i].style.display = 'block';
                     }
                 }
+
+                for (let i = 0; i < buttons.length; i++) {
+                    if (buttons[i].id == parseInt(event.target.id)+1) {
+                        buttons[i].style.display = 'block';
+                    }
+                }
+
             } else {
                 event.target.value = '+';
                 event.target.innerText = '+';
 
+                for (let i = 0; i < buttons.length; i++) {
+                    if (parseInt(buttons[i].id) > parseInt(event.target.id)) {
+                        buttons[i].style.display = 'none';
+                        buttons[i].value = '+';
+                        buttons[i].innerText = '+';
+                    }
+                }
+
                 for (let i = 0; i < elements.length; i++) {
-                    if (elements[i].id == event.target.id) {
+                    if (parseInt(elements[i].id) >= parseInt(event.target.id)) {
                         if (elements[i].nodeName != 'BUTTON') {
                             elements[i].style.display = 'none';
                         }

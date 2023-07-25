@@ -1,8 +1,10 @@
-$Instance-main-background-color: #FF8303;
+$instance-main-background-color: #FF8303;
+$instance-main-border-color: #1B1A17; 
 $instance-background-color: #1B1A17;
 $image-border-color: #1B1A17;
 $instance-name-color: #F0E3CA;
 $instance-slide-background-color: #1B1A17;
+$instance-border-size: 3px;
 
 .InstancesInfinite-main {
     margin-top: 50px;
@@ -15,20 +17,28 @@ $instance-slide-background-color: #1B1A17;
 
 .InstancesInfinite-main h1 {
     font-size: 2rem;
-    padding: 2rem;
-    background-color: $Instance-main-background-color;
+    padding: 2rem 2rem 0 2rem;
+    background-color: $instance-main-background-color;
     border-radius: 50px 50px 0 0;
 
     align-self: flex-start;
     margin-left: 100px;
+    margin-bottom: -$instance-border-size;
+    z-index: 1;
+    border-left: $instance-border-size solid $instance-main-border-color;
+    border-right: $instance-border-size solid $instance-main-border-color;
+    border-top: $instance-border-size solid $instance-main-border-color;
 }
 
 .InstancesInfinite-container {
+    width: 100%;
     padding: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 50px;
-    background-color: $Instance-main-background-color;
+    background-color: $instance-main-background-color;
+    border-bottom: $instance-border-size solid $instance-main-border-color;
+    border-top: $instance-border-size solid $instance-main-border-color;
 }
 
 .InstancesInfinite-container div, .InstancesInfinite-container button {
@@ -43,7 +53,7 @@ $instance-slide-background-color: #1B1A17;
 }
 
 .InstancesInfinite-container div img {
-    width: 100%; 
+    width: 100%;
     border: 2px solid $image-border-color;
     border-radius: 0px 20px 0px 50px;
 
@@ -86,6 +96,7 @@ $instance-slide-background-color: #1B1A17;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        padding: 50px 0;
     }
 
     .InstancesInfinite-main h1 {

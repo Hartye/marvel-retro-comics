@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Global.scss';
-import ImageList from '../components/ImageList';
+import InfiniteEventsImageList from '../components/ImageListInfinite';
 import SmallSection from '../components/SmallSection';
 import SearchSection from '../components/SearchSection';
 
@@ -12,7 +12,13 @@ class Series extends React.Component {
     render() {
         return (
             <div className='Events-main'>
-                <ImageList target="series" targetPage="SeriesInstancePage" apiKey={this.props.apiKey} />
+                <InfiniteEventsImageList 
+                    title="Series"
+                    format="false"
+                    limit="30"
+                    target="series"
+                    targetPage="SeriesInstancePage"
+                    apiKey={this.props.apiKey} />
                 <SmallSection target="series" targetPage="SeriesInstancePage" apiKey={this.props.apiKey} />
                 <SearchSection search="series" targetPage="SeriesInstancePage" apiKey={this.props.apiKey} />
             </div>
