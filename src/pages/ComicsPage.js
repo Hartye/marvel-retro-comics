@@ -2,6 +2,27 @@ import React from 'react';
 import '../styles/Global.scss';
 import ComicsSamllSection from '../components/SmallSection';
 import InfiniteComicsImageList from '../components/ImageListInfinite';
+import React, { useEffect  } from 'react';
+
+const AdsComponent = () => {
+    useEffect(() => {
+        try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+        catch (e) {
+        }
+    },[]);
+    return (
+        <>
+            <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3606517996628366"
+                    data-ad-slot="3870202177"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+        </>
+    );
+};
 
 class Comics extends React.Component {
     constructor(props) {
@@ -49,14 +70,7 @@ class Comics extends React.Component {
                     targetPage={this.state.targetPage}
                     hash={this.props.hash}
                     apiKey={this.props.apiKey} />
-                {/* Grid */}
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-3606517996628366"
-                    data-ad-slot="3870202177"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                {(adsbygoogle = window.adsbygoogle || []).push({ })}
+                <AdsComponent />
             </div>
         )
     }
