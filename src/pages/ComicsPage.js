@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useEffect  } from 'react';
 import '../styles/Global.scss';
 import ComicsSamllSection from '../components/SmallSection';
 import InfiniteComicsImageList from '../components/ImageListInfinite';
-import React, { useEffect  } from 'react';
 
 const AdsComponent = () => {
     useEffect(() => {
         try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
         }
         catch (e) {
         }
     },[]);
     return (
         <>
-            <ins class="adsbygoogle"
-                    style="display:block"
+            <ins className="adsbygoogle"
+                    style={{display: "block"}}
                     data-ad-client="ca-pub-3606517996628366"
                     data-ad-slot="3870202177"
                     data-ad-format="auto"
