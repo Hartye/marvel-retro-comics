@@ -1,7 +1,11 @@
 import React from 'react';
+import ReactGa from 'react-ga';
 import '../styles/Global.scss';
 import ComicsSamllSection from '../components/SmallSection';
 import InfiniteComicsImageList from '../components/ImageListInfinite';
+
+ReactGa.initialize('G-E4DCE9Q0HL ');
+ReactGa.pageview(window.location.pathname);
 
 class Comics extends React.Component {
     constructor(props) {
