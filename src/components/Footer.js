@@ -18,7 +18,7 @@ class Footer extends React.Component {
                     <img src="https://github.com/hartye.png" alt="Author" />
                 </div>
                 <div className='Footer-info'>
-                    <p>Carlos Santos @{this.state.year}</p>
+                    <p>Carlos Santos @ {this.state.year}</p>
                     <p>{this.props.copy}</p>
                 </div>
                 <div className='Footer-buttons'>
