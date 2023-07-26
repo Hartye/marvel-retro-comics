@@ -1,5 +1,7 @@
 $image-border-color: #FF8303;
 $instance-slide-background-color: #1B1A17;
+$next-button-color: #1B1A17;
+$next-button-background-color: #FF8303;
 
 // Second Row
 .Slide-instances-container-slide {
@@ -24,6 +26,20 @@ $instance-slide-background-color: #1B1A17;
 
 .Slide-row div {
     width: 170px;
+}
+
+.Slide-row button {
+    padding: 0;
+    margin: auto;
+    width: 80px;
+    height: 257px;
+    line-height: 257px;
+    font-size: 2rem;
+    box-shadow: none;
+    border-radius: 10px;
+
+    color: $next-button-color;
+    background-color: $next-button-background-color;
 }
 
 .Slide-instances-container-slide div img {

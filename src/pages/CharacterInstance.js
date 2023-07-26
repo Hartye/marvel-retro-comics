@@ -15,6 +15,7 @@ class CharacterInstance extends React.Component {
                 <SmallSection 
                     targetPage='CharacterInstancePage' 
                     target='characters' 
+                    limit="30" 
                     storeId ={"CharacterInstancePage" + "characters" + 'SmallSection'}
                     hash={this.props.hash} 
                     apiKey={this.props.apiKey} />

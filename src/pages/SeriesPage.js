@@ -26,6 +26,7 @@ class Series extends React.Component {
                     targetPage="SeriesInstancePage" 
                     storeId ={"SeriesInstancePage" + "Series" + 'SmallSection'}
                     hash={this.props.hash} 
+                    limit="30" 
                     apiKey={this.props.apiKey} />
                 <SearchSection search="series" targetPage="SeriesInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
             </div>

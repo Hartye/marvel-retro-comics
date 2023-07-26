@@ -32,7 +32,7 @@ $instance-border-size: 3px;
 
 .InstancesInfinite-container {
     width: 100%;
-    padding: 50px;
+    padding: 50px 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 50px;
@@ -41,7 +41,7 @@ $instance-border-size: 3px;
     border-top: $instance-border-size solid $instance-main-border-color;
 }
 
-.InstancesInfinite-container div, .InstancesInfinite-container button {
+.InstancesInfinite-container a, .InstancesInfinite-container div, .InstancesInfinite-container button {
     width: 250px;
     background-color: $instance-background-color;
     overflow: hidden;
@@ -105,7 +105,7 @@ $instance-border-size: 3px;
 }
 
 @media screen and (max-width: 1150px) {
-    .InstancesInfinite-container div, .InstancesInfinite-container button {
+    .InstancesInfinite-container a, .InstancesInfinite-container div, .InstancesInfinite-container button {
         width: 180px;
     }
 
@@ -127,7 +127,7 @@ $instance-border-size: 3px;
 }
 
 @media screen and (max-width: 450px) {
-    .InstancesInfinite-container div, .InstancesInfinite-container button {
+    .InstancesInfinite-container a, .InstancesInfinite-container div, .InstancesInfinite-container button {
         width: 90vw;
     }
 

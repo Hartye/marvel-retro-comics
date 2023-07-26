@@ -15,6 +15,7 @@ class ComicsInstance extends React.Component {
                 <ComicsSamllSection 
                     targetPage='ComicInstancePage' 
                     target='comics' 
+                    limit="30" 
                     storeId ={"ComicInstancePage" + "comics" + 'SmallSection'}
                     hash={this.props.hash} 
                     apiKey={this.props.apiKey} />

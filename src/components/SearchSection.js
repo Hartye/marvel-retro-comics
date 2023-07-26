@@ -12,7 +12,7 @@ class Search extends React.Component {
         let url =
             'https://gateway.marvel.com/v1/public/' +
             this.props.search + // characters | comics | creators | events | series | stories
-            '?ts=2023&apikey=' + this.props.apiKey +
+            '?ts=2023&limit=50&apikey=' + this.props.apiKey +
             '&hash=' + this.props.hash;
         let req = new Request(url);
         await fetch(req)
@@ -31,7 +31,7 @@ class Search extends React.Component {
                         </div>
                     </a>
                     `;
-                    if (i >= 10) {
+                    if (i >= res.data.results.length / 2) {
                         document.querySelector(".Search-instance-row-two").innerHTML += htmlContent;
                     } else {
                         document.querySelector(".Search-instance-row-one").innerHTML += htmlContent;
@@ -46,8 +46,9 @@ class Search extends React.Component {
             let url =
                 'https://gateway.marvel.com/v1/public/' +
                 this.props.search + // characters | comics | creators | events | series | stories
-                `?${this.props.search == 'comics' || this.props.search == 'series' ? 'title' : 'name'}StartsWith=` + searchValue +
-                '&apikey=' + this.props.apiKey;
+                `?ts=2023&${this.props.search == 'comics' || this.props.search == 'series' ? 'title' : 'name'}StartsWith=` + searchValue +
+                '&limit=50&apikey=' + this.props.apiKey +
+                '&hash=' + this.props.hash;
             let req = new Request(url);
             await fetch(req)
                 .then((res) => {

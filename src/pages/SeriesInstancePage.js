@@ -19,6 +19,7 @@ class SeriesInstance extends React.Component {
                 <SmallSection 
                     targetPage='SeriesInstancePage' 
                     target='series' 
+                    limit="30" 
                     storeId ={"SeriesInstancePage" + "Series" + 'SmallSection'}
                     hash={this.props.hash} 
                     apiKey={this.props.apiKey} />

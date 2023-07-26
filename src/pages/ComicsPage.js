@@ -29,6 +29,7 @@ class Comics extends React.Component {
                     target={this.state.target}
                     storeId ={this.state.targetPage + this.state.target + 'SmallSection'}
                     hash={this.props.hash} 
+                    limit="30" 
                     apiKey={this.props.apiKey}/>
                 <InfiniteComicsImageList 
                     title="Infinite Comics" 

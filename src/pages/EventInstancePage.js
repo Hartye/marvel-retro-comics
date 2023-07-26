@@ -15,6 +15,7 @@ class EventInstance extends React.Component {
                 <SmallSection 
                     targetPage='EventInstancePage' 
                     target='events' 
+                    limit="30" 
                     storeId ={"EventInstancePage" + "Events" + 'SmallSection'}
                     hash={this.props.hash} 
                     apiKey={this.props.apiKey} />
