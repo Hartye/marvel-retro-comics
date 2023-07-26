@@ -24,18 +24,6 @@ class Comics extends React.Component {
                     targetPage={this.state.targetPage}
                     hash={this.props.hash}
                     apiKey={this.props.apiKey} />
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3606517996628366"
-                    crossorigin="anonymous"></script>
-                {/* Grid */}
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-3606517996628366"
-                    data-ad-slot="3870202177"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({ });
-                </script>
                 <ComicsSamllSection
                     targetPage={this.state.targetPage}
                     target={this.state.target}
@@ -61,8 +49,6 @@ class Comics extends React.Component {
                     targetPage={this.state.targetPage}
                     hash={this.props.hash}
                     apiKey={this.props.apiKey} />
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3606517996628366"
-                    crossorigin="anonymous"></script>
                 {/* Grid */}
                 <ins class="adsbygoogle"
                     style="display:block"
@@ -70,9 +56,7 @@ class Comics extends React.Component {
                     data-ad-slot="3870202177"
                     data-ad-format="auto"
                     data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({ });
-                </script>
+                {(adsbygoogle = window.adsbygoogle || []).push({ })}
             </div>
         )
     }
