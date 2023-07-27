@@ -48,23 +48,29 @@ class DetailSection extends React.Component {
                     }
                 }
 
-                if (this.props.target == 'events' || this.props.target == 'comics' || this.props.target == 'series') {
-                    // Comic Creators and Artirts
+                if (this.props.target == 'comics' || this.props.target == 'events' || this.props.target == 'series') {
                     creators = '';
                     artists = '';
+
+                    
                     items = res.data.results[0].creators.items;
                     for (let i = 0; i < items.length; i++) {
                         if (items[i].role == 'writer') {
-                            creators += items[i].name + '. '
-                        } else if (items[i].role == 'penciller' || items[i].role == 'colorist' || items[i].role == 'inker') {
-                            artists += items[i].name + '. '
+                            creators += `
+                            ${` <a href='/CreatorInstancePage/${items[i].resourceURI.split('/').slice(-1)}'>${items[i].name}</a>`}
+                            `
+                        } else {
+                            artists += `
+                            ${` <a href='/CreatorInstancePage/${items[i].resourceURI.split('/').slice(-1)}'>${items[i].name}</a>`}
+                            `
                         }
                     }
 
                     if (creators == '') {
-                        creators = 'N/A'
-                    } if (artists == '') {
-                        artists = 'N/A'
+                        creators = 'N/A';
+                    }
+                    if (artists == '') {
+                        artists = 'N/A';
                     }
                 }
 
