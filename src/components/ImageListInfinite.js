@@ -33,6 +33,10 @@ class InstancesInfinite extends React.Component {
                 limit = '?limit='+this.props.limit;
             }
         }
+        let creator = '';
+        if (this.props.creator != "false") {
+            creator = '?creators='+this.props.creator;
+        }
 
         if (window.innerWidth <= 450) {
             portraitType = 'landscape_amazing';
@@ -40,15 +44,28 @@ class InstancesInfinite extends React.Component {
             portraitType = 'portrait_uncanny';
         }
 
+        let url;
         let localData;
-        let url =
+        if (this.props.creator == "false") {
+            url =
             'https://gateway.marvel.com/v1/public/' +
             this.props.target + // characters | comics | creators | events | series | stories
             format +
             limit +
             '&ts=2023&apikey=' + this.props.apiKey +
             '&hash=' + this.props.hash;
-        if (localStorage.getItem(this.props.storeId) == null) {
+        } else {
+            url =
+            'https://gateway.marvel.com/v1/public/' +
+            this.props.target + // characters | comics | creators | events | series | stories
+            creator +
+            limit +
+            '&ts=2023&apikey=' + this.props.apiKey +
+            '&hash=' + this.props.hash;
+        }
+        console.log(url)
+
+        if (localStorage.getItem(this.props.storeId) == null || this.props.request == "true") {
             let req = new Request(url);
             await fetch(req)
                 .then((res) => {
@@ -65,24 +82,26 @@ class InstancesInfinite extends React.Component {
         localData = JSON.parse(localStorage.getItem(this.props.storeId));
 
         let elementsId = 1;
-        for (let i = 0; i < this.props.limit; i++) {
-            if (i % 10 == 0 && i != 0) {
-                elementsId++;
-                document.querySelector(`#${this.props.format.replace(" ", "")}`).innerHTML += `<button value="+" class="btn ${this.props.format.replace(" ", "")}" id="${elementsId}">+</button>`;
-            }
+        if (localData.data.count != 0) {
+            for (let i = 0; i < localData.data.count; i++) {
+                if (i % 10 == 0 && i != 0) {
+                    elementsId++;
+                    document.querySelector(`#${this.props.format.replace(" ", "")}`).innerHTML += `<button value="+" class="btn ${this.props.format.replace(" ", "")}" id="${elementsId}">+</button>`;
+                }
 
-            let imageURL = localData.data.results[i].thumbnail.path.replace("http", "https") + '/' + portraitType +'.' + localData.data.results[i].thumbnail.extension;
-            let htmlContent =
-                `
-            <a href="/${this.props.targetPage}/${localData.data.results[i].id}" id="${elementsId}">
-                <div>
-                <img src="${imageURL}" alt="Characters" />
-                <p>${this.props.target == 'comics' || this.props.target == 'events' || this.props.target == 'series' ? localData.data.results[i].title : localData.data.results[i].name}</p>
-                </div>
-            </a>
-            `;
-            
-            document.querySelector(`#${this.props.format.replace(" ", "")}`).innerHTML += htmlContent;
+                let imageURL = localData.data.results[i].thumbnail.path.replace("http", "https") + '/' + portraitType +'.' + localData.data.results[i].thumbnail.extension;
+                let htmlContent =
+                    `
+                <a href="/${this.props.targetPage}/${localData.data.results[i].id}" id="${elementsId}">
+                    <div>
+                    <img src="${imageURL}" alt="Characters" />
+                    <p>${this.props.target == 'comics' || this.props.target == 'events' || this.props.target == 'series' ? localData.data.results[i].title : localData.data.results[i].name}</p>
+                    </div>
+                </a>
+                `;
+                
+                document.querySelector(`#${this.props.format.replace(" ", "")}`).innerHTML += htmlContent;
+            }
         }
 
         let elements = document.querySelectorAll(`#${this.props.format.replace(" ", "")} a, #${this.props.format.replace(" ", "")} button`);
@@ -92,13 +111,17 @@ class InstancesInfinite extends React.Component {
             if (elements[i].nodeName == 'BUTTON') {
                 if (firstBtn == true) {
                     for (let j = i+1; j < i + 11; j++) {
-                        elements[j].style.display = 'none';
+                        if (elements[j] != undefined) {
+                            elements[j].style.display = 'none';
+                        }
                     }
 
                     firstBtn = false;
                 } else {
                     for (let j = i; j < i + 11; j++) {
-                        elements[j].style.display = 'none';
+                        if (elements[j] != undefined) {
+                            elements[j].style.display = 'none';
+                        }
                     }
                 }
             }
@@ -160,4 +183,10 @@ class InstancesInfinite extends React.Component {
         )
     }
 }
+
+InstancesInfinite.defaultProps = {
+    creator: 'false',
+    request: "false"
+}
+
 export default InstancesInfinite;
