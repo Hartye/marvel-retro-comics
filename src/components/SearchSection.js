@@ -20,6 +20,7 @@ class Search extends React.Component {
                 return res.json();
             })
             .then((res) => {
+                console.log('Requested')
                 document.querySelector(".Search-instance-row-two").innerHTML = '';
                 document.querySelector(".Search-instance-row-one").innerHTML = '';
                 for (let i = 0; i < res.data.results.length; i++) {
@@ -55,6 +56,7 @@ class Search extends React.Component {
                     return res.json();
                 })
                 .then((res) => {
+                    console.log('Requested')
                     document.querySelector(".Search-instance-row-one").innerHTML = '';
                     document.querySelector(".Search-instance-row-two").innerHTML = '';
                     for (let i = 0; i < res.data.results.length; i++) {

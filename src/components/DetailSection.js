@@ -33,7 +33,7 @@ class DetailSection extends React.Component {
                 return res.json();
             })
             .then((res) => {
-                console.log(res);
+                console.log('Requested');
                 let yearList, year, series, artists, creators, items;
 
                 if (this.props.target == 'comics') {

@@ -63,7 +63,6 @@ class InstancesInfinite extends React.Component {
             '&ts=2023&apikey=' + this.props.apiKey +
             '&hash=' + this.props.hash;
         }
-        console.log(url)
 
         if (localStorage.getItem(this.props.storeId) == null || this.props.request == "true") {
             let req = new Request(url);
