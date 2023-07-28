@@ -16,7 +16,7 @@ class CreatorInstance extends React.Component {
                     title="Creations"
                     format="comic"
                     creator={window.location.pathname.split('/').slice(-1).toString()}
-                    limit="30"
+                    limit="false"
                     storeId={"CreatorCreations" + "comics"}
                     target='comics' 
                     targetPage='ComicInstancePage' 
