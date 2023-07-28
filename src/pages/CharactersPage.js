@@ -20,7 +20,12 @@ class Characters extends React.Component {
                     targetPage="CharacterInstancePage"
                     hash={this.props.hash}
                     apiKey={this.props.apiKey} />
-                <SearchSection targetPage="CharacterInstancePage" search="characters" hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SearchSection 
+                    targetPage="CharacterInstancePage" 
+                    search="characters" 
+                    storeId={"CharacterInstancePage" + "Characters" + "Search"}
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
             </div>
         )
     }

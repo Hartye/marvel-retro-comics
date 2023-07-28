@@ -27,7 +27,12 @@ class Events extends React.Component {
                     targetPage="EventInstancePage" 
                     hash={this.props.hash} 
                     apiKey={this.props.apiKey} />
-                <SearchSection search="events" targetPage="EventInstancePage" hash={this.props.hash} apiKey={this.props.apiKey} />
+                <SearchSection 
+                    search="events" 
+                    targetPage="EventInstancePage" 
+                    storeId={"EventInstancePage" + "Events" + "Search"}
+                    hash={this.props.hash} 
+                    apiKey={this.props.apiKey} />
             </div>
         )
     }
