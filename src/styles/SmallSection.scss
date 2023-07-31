@@ -70,6 +70,19 @@ $instance-title-color: #F0E3CA;
     opacity: .6;
 }
 
+// Resolution 
+@media screen and (max-width: 740px) {
+    .Slide-title {
+        margin-left: 40px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Slide-title {
+        margin-left: 20px;
+    }
+}
+
 // Animations
 @keyframes fadeStart {
     0% {

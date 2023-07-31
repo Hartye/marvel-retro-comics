@@ -73,7 +73,7 @@ class SmallSection extends React.Component {
                 document.querySelector(`.Slide-row`).innerHTML += `<button value="+" class="btn" id="${smallElementsId}">+</button>`;
             }
             
-            let imageURL = localData.data.results[i].thumbnail.path.replace("http", "https") + '/portrait_uncanny.' + localData.data.results[i].thumbnail.extension;
+            let imageURL = localData.data.results[i].thumbnail.path.replace("http", "https") + '/portrait_fantastic.' + localData.data.results[i].thumbnail.extension;
             let htmlContent =
                 `
             <a href="/${this.props.targetPage}/${localData.data.results[i].id}" id="${smallElementsId}">

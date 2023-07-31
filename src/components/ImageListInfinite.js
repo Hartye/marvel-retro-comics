@@ -39,9 +39,9 @@ class InstancesInfinite extends React.Component {
         }
 
         if (window.innerWidth <= 450) {
-            portraitType = 'landscape_amazing';
+            portraitType = 'landscape_xlarge';
         } else {
-            portraitType = 'portrait_uncanny';
+            portraitType = 'portrait_fantastic';
         }
 
         let url;
