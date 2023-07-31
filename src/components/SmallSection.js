@@ -5,10 +5,15 @@ import '../styles/SmallSection.scss';
 class SmallSection extends React.Component {
     constructor(props) {
         super(props);
+        this.LocalStorage = this.LocalStorage.bind(this);
         this.ElementColapse = this.ElementColapse.bind(this);
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.LocalStorage();
+    }
+
+    async LocalStorage() {
         let limit = '&limit=' + this.props.limit;
         let localData;
         let url =
@@ -149,6 +154,9 @@ class SmallSection extends React.Component {
     render() {
         return (
             <div className='Slide-main'>
+                <div className='Slide-title'>
+                    <h1>{this.props.title}</h1>
+                </div>
                 <section className='Slide-instances-container-slide'>
                     <div className="Slide-row"></div>
                 </section>
@@ -156,4 +164,9 @@ class SmallSection extends React.Component {
         )
     }
 }
+
+SmallSection.defaultProps = {
+    title: 'More'
+}
+
 export default SmallSection;

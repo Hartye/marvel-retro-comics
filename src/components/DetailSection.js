@@ -33,10 +33,20 @@ class DetailSection extends React.Component {
                 return res.json();
             })
             .then((res) => {
+                console.log(res);
                 console.log('Requested');
-                let yearList, year, series, artists, creators, items;
+                let yearList, year, artists, creators, items, variants = 'N/A';
 
                 if (this.props.target == 'comics') {
+                    if (res.data.results[0].variants.length != 0) {
+                        variants = '';
+                        for (let i = 0; i < res.data.results[0].variants.length; i++) {
+                            variants += `
+                            ${` <a href='/ComicInstancePage/${res.data.results[0].variants[i].resourceURI.split('/').slice(-1)}'>${res.data.results[0].variants[i].name + ' #' + i}</a>`}
+                            `
+                        }
+                    }
+
                     yearList = res.data.results[0].title.match(/\d+/);
                     year = 'N/A';
                     if (yearList != null) {
@@ -90,6 +100,7 @@ class DetailSection extends React.Component {
                             <p><span style="font-weight: bold">Published At</span>: ${year}</p>
                             <p><span style="font-weight: bold">Writer(s)</span>: ${creators}</p>
                             <p><span style="font-weight: bold">Artists(s)</span>: ${artists}</p>
+                            <p><span style="font-weight: bold">Variants(s)</span>: ${variants}</p>
                             <div>
                                 <button value="Series" class="btn">+ Series</button>
                                 <p><span style="font-weight: bold">Series</span>: ${` <a href='/SeriesInstancePage/${res.data.results[0].series.resourceURI.split('/').slice(-1)}'>${res.data.results[0].series.name}</a>`}</p>
