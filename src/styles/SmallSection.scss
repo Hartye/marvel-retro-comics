@@ -5,7 +5,7 @@ $next-button-background-color: #FF8303;
 $instance-title-color: #F0E3CA;
 
 .Slide-title {
-    margin: 50px 0 -5px 50px;
+    margin: 50px 0 -5px 100px;
     width: 150px;
     display: flex;
     padding: 5px 10px 0 10px;
@@ -71,6 +71,12 @@ $instance-title-color: #F0E3CA;
 }
 
 // Resolution 
+@media screen and (max-width: 1150px) {
+    .Slide-title {
+        margin-left: 60px;
+    }
+}
+
 @media screen and (max-width: 740px) {
     .Slide-title {
         margin-left: 40px;

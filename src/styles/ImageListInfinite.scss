@@ -34,7 +34,7 @@ $instance-border-size: 3px;
     width: 100%;
     padding: 50px 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 50px;
     background-color: $instance-main-background-color;
     border-bottom: $instance-border-size solid $instance-main-border-color;
@@ -42,10 +42,11 @@ $instance-border-size: 3px;
 }
 
 .InstancesInfinite-container a, .InstancesInfinite-container div, .InstancesInfinite-container button {
-    width: 250px;
+    width: 200px;
     background-color: $instance-background-color;
     overflow: hidden;
     border-radius: 0px 20px 0px 50px;
+    box-shadow: 0 1px 10px -1px #1B1A17;
 
     display: flex;
     flex-direction: column;
