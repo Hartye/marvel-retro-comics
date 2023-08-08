@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Global.scss';
-import ComicsSamllSection from '../components/SmallSection'
+import ComicsSamllSection from '../components/SmallSection';
 import DetailSection from '../components/DetailSection';
 
 class ComicsInstance extends React.Component {

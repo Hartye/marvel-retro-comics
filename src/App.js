@@ -14,6 +14,7 @@ import EventsPage from './pages/EventsPage';
 import EventInstancePage from './pages/EventInstancePage';
 import SeriesPage from './pages/SeriesPage';
 import SeriesInstancePage from './pages/SeriesInstancePage'
+import ProfilePage from './pages/ProfilePage';
 // Router
 import { Routes, Route, Navigate } from 'react-router-dom';
 // Styles
@@ -68,6 +69,7 @@ class App extends React.Component {
             <Route path="EventInstancePage/*" element={<EventInstancePage hash={this.state.hash} apiKey={this.state.apiKey} />} />
             <Route path="SeriesPage" element={<SeriesPage hash={this.state.hash} apiKey={this.state.apiKey} />} />
             <Route path="SeriesInstancePage/*" element={<SeriesInstancePage hash={this.state.hash} apiKey={this.state.apiKey} />} />
+            <Route path="ProfilePage" element={<ProfilePage hash={this.state.hash} apiKey={this.state.apiKey} />} />            
           </Routes>
         </div>
         <Footer copy={this.state.footerCopy}/>
