@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Global.scss';
 import '../styles/DetailInstancePage.scss';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 // Props: target, apiKey, targetPage
 
@@ -17,9 +17,14 @@ const GoBackButton = () => {
 class DetailSection extends React.Component {
     constructor(props) {
         super(props);
+        this.makeRequest = this.makeRequest.bind(this);
     }
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.makeRequest();
+    }
+
+    async makeRequest() {
         let id = window.location.pathname.split('/').slice(-1);
         let url =
             'https://gateway.marvel.com/v1/public/' +
@@ -83,7 +88,7 @@ class DetailSection extends React.Component {
                     }
                 }
 
-                let imageURL = res.data.results[0].thumbnail.path + '/portrait_uncanny.' + res.data.results[0].thumbnail.extension;
+                let imageURL = res.data.results[0].thumbnail.path.replace("http", "https") + '/portrait_uncanny.' + res.data.results[0].thumbnail.extension;
                 let htmlContent =
                     `
                 <div id="${id}">
