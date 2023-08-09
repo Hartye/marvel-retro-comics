@@ -33,6 +33,7 @@ class DetailSection extends React.Component {
 
     async makeRequest() {
         let id = window.location.pathname.split('/').slice(-1);
+        let localData;
         let url = this.props.target != 'profile' ? 
         'https://gateway.marvel.com/v1/public/' +
         this.props.target + '/' + // characters | comics | creators | events | series | stories
@@ -44,16 +45,20 @@ class DetailSection extends React.Component {
             id: id,
             category: this.props.target
         })
+
+        if (this.props.target == 'profile') {
+            localData = JSON.parse(localStorage.getItem('profile'));
+        }
         let req = new Request(url);
-        let params = {
+        let params = this.props.target == 'profile' ? {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: '{ "name": "' + this.props.name + '", "pass": "' + this.props.pass + '" }',
-        };
+            body: '{ "name": "' + localData.name + '", "pass": "' + localData.pass + '" }',
+        } : { method: 'GET'};
         
-        await fetch(req, this.props.target != 'profile' ? { method: 'GET'} : params)
+        await fetch(req, params)
             .then((res) => {
                 return res.json();
             })
